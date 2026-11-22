@@ -55,9 +55,9 @@ void ParserLL::loadSyms()
     grammar.addSymbol(nt_sentencias_p,    Symbol(nt_sentencias_p));
     grammar.addSymbol(nt_sentencia,       Symbol(nt_sentencia));
     grammar.addSymbol(nt_E,               Symbol(nt_E));
-    grammar.addSymbol(nt_E_p,             Symbol(nt_E_p));
+    grammar.addSymbol(nt_Ep,             Symbol(nt_Ep));
     grammar.addSymbol(nt_T,               Symbol(nt_T));
-    grammar.addSymbol(nt_T_p,             Symbol(nt_T_p));
+    grammar.addSymbol(nt_Tp,             Symbol(nt_Tp));
     grammar.addSymbol(nt_F,               Symbol(nt_F));
 }
 
@@ -83,14 +83,14 @@ void ParserLL::loadProds()
     grammar.addProd(14, Production(nt_sentencia,       {t_id, t_asign, nt_E, t_pyc}));
     grammar.addProd(15, Production(nt_sentencia,       {t_if, t_pizq, nt_E, t_pder, nt_sentencias, t_else, nt_sentencias}));
     grammar.addProd(16, Production(nt_sentencia,       {t_while, t_pizq, nt_E, t_pder, nt_sentencias}));
-    grammar.addProd(17, Production(nt_E,               {nt_T, nt_E_p}));
-    grammar.addProd(18, Production(nt_E_p,             {t_suma, nt_T, nt_E_p}));
-    grammar.addProd(19, Production(nt_E_p,             {t_resta, nt_T, nt_E_p}));
-    grammar.addProd(20, Production(nt_E_p,             {strEmpty}));
-    grammar.addProd(21, Production(nt_T,               {nt_F, nt_T_p}));
-    grammar.addProd(22, Production(nt_T_p,             {t_mult, nt_F, nt_T_p}));
-    grammar.addProd(23, Production(nt_T_p,             {t_div, nt_F, nt_T_p}));
-    grammar.addProd(24, Production(nt_T_p,             {strEmpty}));
+    grammar.addProd(17, Production(nt_E,               {nt_T, nt_Ep}));
+    grammar.addProd(18, Production(nt_Ep,             {t_suma, nt_T, nt_Ep}));
+    grammar.addProd(19, Production(nt_Ep,             {t_resta, nt_T, nt_Ep}));
+    grammar.addProd(20, Production(nt_Ep,             {strEmpty}));
+    grammar.addProd(21, Production(nt_T,               {nt_F, nt_Tp}));
+    grammar.addProd(22, Production(nt_Tp,             {t_mult, nt_F, nt_Tp}));
+    grammar.addProd(23, Production(nt_Tp,             {t_div, nt_F, nt_Tp}));
+    grammar.addProd(24, Production(nt_Tp,             {strEmpty}));
     grammar.addProd(25, Production(nt_F,               {t_id}));
     grammar.addProd(26, Production(nt_F,               {t_numero}));
     grammar.addProd(27, Production(nt_F,               {t_pizq, nt_E, t_pder}));
@@ -144,21 +144,21 @@ void ParserLL::loadTable()
     table[nt_E][t_numero] = 17;
     table[nt_E][t_pizq]   = 17;
 
-    table[nt_E_p][t_suma]  = 18;
-    table[nt_E_p][t_resta] = 19;
-    table[nt_E_p][t_pyc]   = 20;
-    table[nt_E_p][t_pder]  = 20;
+    table[nt_Ep][t_suma]  = 18;
+    table[nt_Ep][t_resta] = 19;
+    table[nt_Ep][t_pyc]   = 20;
+    table[nt_Ep][t_pder]  = 20;
 
     table[nt_T][t_id]     = 21;
     table[nt_T][t_numero] = 21;
     table[nt_T][t_pizq]   = 21;
 
-    table[nt_T_p][t_mult]  = 22;
-    table[nt_T_p][t_div]   = 23;
-    table[nt_T_p][t_suma]  = 24;
-    table[nt_T_p][t_resta] = 24;
-    table[nt_T_p][t_pyc]   = 24;
-    table[nt_T_p][t_pder]  = 24;
+    table[nt_Tp][t_mult]  = 22;
+    table[nt_Tp][t_div]   = 23;
+    table[nt_Tp][t_suma]  = 24;
+    table[nt_Tp][t_resta] = 24;
+    table[nt_Tp][t_pyc]   = 24;
+    table[nt_Tp][t_pder]  = 24;
 
     table[nt_F][t_id]     = 25;
     table[nt_F][t_numero] = 26;
