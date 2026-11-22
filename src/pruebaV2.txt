@@ -1,0 +1,6 @@
+int a, b;
+a = 1;
+if (a)
+    b = a + 1;
+else
+    b = 0;
